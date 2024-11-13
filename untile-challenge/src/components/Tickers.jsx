@@ -11,7 +11,7 @@ function Tickers() {
   const [market, setMarket] = useState(exchangesOptions[0].name);
   const [results, setResults] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleSearchBtn = async () => {
     const currencyToConvert = coinOptions.filter(coin => coin.symbol === coinToSearch.toLowerCase())[0].name;

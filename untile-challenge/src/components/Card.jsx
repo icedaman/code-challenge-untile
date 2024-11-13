@@ -6,7 +6,7 @@ function Card({ results }) {
   const { base, target, market, last, last_traded_at, volume, trade_url } = results;
   
   return (
-    <div className='w-[60%] mx-auto p-5 mb-5 flex justify-between items-center rounded-lg border-1 text-[#454B51] border-[#454B51] shadow-lg shadow-[#b8c0c6]  bg-white'
+    <div className='w-[870px] mx-auto p-5 mb-5 flex justify-between items-center rounded-lg border-1 text-[#454B51] border-[#454B51] shadow-lg shadow-[#b8c0c6]  bg-white'
       key={base + target + market}
     >
       <div className='text-left ml-5'>
