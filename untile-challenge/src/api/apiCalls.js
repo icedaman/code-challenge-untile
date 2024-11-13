@@ -19,7 +19,16 @@ const coinOptions = [
   },
 ];
 
+const exchangesOptions = [
+  { id: "binance", name: "Binance" },
+  { id: "bitstamp", name: "Bitstamp" },
+  { id: "bitfinex", name: "Bitfinex" },
+  { id: "kraken", name: "Kraken" },
+];
+
 export const getCoinOptions = () => coinOptions;
+
+export const getExchangeOptions = () => exchangesOptions;
 
 export const fetchSupportedCurrencies = async (setCurrencysList, setFromCurrency, setToCurrency) => {
   try {

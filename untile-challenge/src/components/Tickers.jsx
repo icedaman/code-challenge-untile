@@ -1,19 +1,12 @@
 import { useState } from 'react';
 import Select from './Select';
 import Button from './Button';
-import { getCoinOptions, getCoinTickersByExchange } from '../api/apiCalls';
+import { getCoinOptions, getCoinTickersByExchange, getExchangeOptions } from '../api/apiCalls';
 import Card from './Card';
-
-//const exchangesOptions = ["Binance", "Bitstamp", "Bitfinex", "Kraken"];
-const exchangesOptions = [
-  {id: "binance", name: "Binance"},
-  {id: "bitstamp", name: "Bitstamp"},
-  {id: "bitfinex", name: "Bitfinex"},
-  {id: "kraken", name: "Kraken"},
-];
 
 function Tickers() {
   const coinOptions = getCoinOptions();
+  const exchangesOptions = getExchangeOptions();
   const [coinToSearch, setCoinToSearch] = useState(coinOptions[0].symbol);
   const [market, setMarket] = useState(exchangesOptions[0].name);
   const [results, setResults] = useState(null);
