@@ -13,7 +13,7 @@ function Tickers() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const handleSearchBtn = async () => {
+  const handleSearchBtn = () => {
     const currencyToConvert = coinOptions.filter(coin => coin.symbol === coinToSearch.toLowerCase())[0].name;
     getCoinTickersByExchange(currencyToConvert, market, setResults, setIsLoading, setError);
   }
@@ -42,7 +42,7 @@ function Tickers() {
         {isLoading && <div>Loading...</div>}
         {error && <div>Error fetching data: {error}</div>}
 
-        {results && results?.filter(res => res.base !== coinToSearch || res.target !== coinToSearch)?.map(res => (
+        {results && results?.filter(res => res.base.toLowerCase() === coinToSearch.toLowerCase() || res.target.toLowerCase() === coinToSearch.toLowerCase())?.map(res => (
           <Card key={res.base + res.target + res.market.name} results={res} />
         ))}
       </div>
