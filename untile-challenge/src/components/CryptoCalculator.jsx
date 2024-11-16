@@ -32,7 +32,13 @@ function CryptoCalculator({ history, setHistory }) {
           <input type="number" placeholder="0.00" required name="from" id="from" value={inputAmount} onChange={(e) => setInputAmount(e.target.value)}
             className='w-[192px] h-[64px] pl-5 mr-5 border-[#E0E0D7] bg-white text-[#353A3E] text-[24px] rounded-lg' 
           />
-          <Select setterFn={(e)=> setFromCurrency(e.target.value)} value={fromCurrency}>
+          <Select value={fromCurrency} setterFn={(e) => {
+              if (e.target.value === toCurrency) {
+                setToCurrency(currencysList?.filter(coin => coin !== e.target.value)[0])
+              }
+              setFromCurrency(e.target.value)
+            }}
+          >
             {coinOptions?.map((option) => (
               <option key={option.symbol} value={option.symbol}>
                 {option.symbol.toUpperCase()}
